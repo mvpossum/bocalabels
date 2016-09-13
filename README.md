@@ -2,7 +2,7 @@
 
 This small script generates a pdf ready to print, containing the 
 credentials of the teams to log in to the Boca system ( https://github.com/cassiopc/boca ).
-It is useful when holding competition with this system.
+It is useful when holding competition with this system. You can see an example of the output in example.pdf.
 
 # Usage
 1. First, log in to icpc.baylor.edu using the organizer account of the contest.

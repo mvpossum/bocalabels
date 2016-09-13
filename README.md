@@ -1,10 +1,11 @@
 # Boca Labels
 
-This small script generates a pdf ready to print, containing the 
-credentials of the teams to log in to the Boca system ( https://github.com/cassiopc/boca ).
-It is useful when holding competition with this system. You can see an example of the output in example.pdf.
+This small script generates usernames and password for the Boca system ( https://github.com/cassiopc/boca ).
+Also it can generate a pdf, containing the credentials of the teams.
+It is useful when holding competition with this system.
+You can see an example of the output in example.pdf.
 
-# Usage
+# Generating credentials
 1. First, log in to icpc.baylor.edu using the organizer account of the contest.
 2. In the Dashboard, select the desired contest. 
 3. Click on the Export button, choose PC^2 format.
@@ -14,13 +15,18 @@ It is useful when holding competition with this system. You can see an example o
     > grep 12345 PC2_Team.tab > site.tab
    
    Now site.tab contains the desired teams.
-7. You probably want to set the site number to 1:
+7. Generate the file users.txt with the usernames and passwords running:
+    > python2 generate_users.py site.tab users.txt
+    
+    Note that this will by default set all site numbers to 1.
+    You can change this by passing --keep-site.
+    
+# Loading the credential into Boca
+1. Log in as admin to the Boca system ( http://localhost/boca )
+2. Go to tab Users, section Import and select the users.txt file generated previously. The users should be loaded.
 
-    > set -i -e 's^\([0123456789]*\)\t[0123456789]*/\1\t1/g' site.tab
-8. Log in as admin to the Boca system (localhost/boca)
-9. Go to Users, Import and select the .tab file.
-10. If the import is successful it will list the generated users and password. Copy and paste this table into a new file (password.tab).
-11. Finally, run this generator to make the labels, using the following format:
-    > python2 makelabels.py contest_name users.tab passwords.tab output[.tex]
+# Generating pdf with labels
+1. Run the script to make the labels:
+    > python2 makelabels.py contest_name users.txt labels
     
     It will try to compile it into a pdf.

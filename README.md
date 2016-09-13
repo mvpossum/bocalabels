@@ -12,11 +12,11 @@ You can see an example of the output in example.pdf.
 4. Extract the file PC2_Team.tab
 5. This file contains the teams from all sites. If you want the team from all the sites go to step 7. Otherwise open PC2_Team.tab, look for a team registered in your site and copy the number in the second column. This is the site number.
 6. Assuming the site number is 12345, run the following command:
-    > grep 12345 PC2_Team.tab > site.tab
+    > SITE=12345; sed -i -n '/^[[:digit:]]*\t'$SITE'/p' PC2_Team.tab
    
-   Now site.tab contains the desired teams.
+   Now PC2_Team.tab contains only the teams from the site.
 7. Generate the file users.txt with the usernames and passwords running:
-    > python2 generate_users.py site.tab users.txt
+    > python2 generate_users.py PC2_Team.tab users.txt
     
     Note that this will by default set all site numbers to 1.
     You can change this by passing --keep-site.

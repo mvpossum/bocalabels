@@ -15,6 +15,7 @@ It is useful when holding competition with this system.
    
    Now site.tab contains the desired teams.
 7. You probably want to set the site number to 1:
+
     > set -i -e 's^\([0123456789]*\)\t[0123456789]*/\1\t1/g' site.tab
 8. Log in as admin to the Boca system (localhost/boca)
 9. Go to Users, Import and select the .tab file.

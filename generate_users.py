@@ -43,6 +43,7 @@ with open(OUTPUT, "w") as out:
             user['usericpcid'] = data[0]
             user['username'] = 'team' + str(i+1)
             user['userfullname'] = name + ' - ' + university
+	    user['userdesc'] = university
             user['userpassword']  = genpass()
             if KEEP_SITE:
                 user['usersitenumber'] = data[1] #un

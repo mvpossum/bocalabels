@@ -21,7 +21,7 @@ You can see an example of the output in example.pdf.
     Note that this will by default set all site numbers to 1.
     You can change this by passing --keep-site.
     
-## Loading the credential into Boca
+## Loading the credentials into Boca
 1. Log in as admin to the Boca system ( http://localhost/boca )
 2. Go to tab Users, section Import and select the users.txt file generated previously. The users should be loaded.
 
